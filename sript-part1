@@ -1,2 +1,32 @@
 python3 -m venv
 
+
+## for autoenv
+
+echo "source `which activate.sh`" >> ~/.bashrc
+source ~/.bashrc
+
+
+#Heroku Settings
+#Similarly we’re going to set environment variables on Heroku.
+
+#For staging run the following command:
+
+heroku config:set APP_SETTINGS=config.StagingConfig --remote stage
+
+#For production:
+
+$ heroku config:set APP_SETTINGS=config.ProductionConfig --remote pro
+
+
+
+##running in herohu
+
+heroku run python app.py --app wordcount-stage-mp
+
+heroku run python app.py --app wordcount-pro-mp
+
+###pushing
+
+git push pro2 master
+git push stage2 master
