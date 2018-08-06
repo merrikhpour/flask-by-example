@@ -1,0 +1,21 @@
+
+#to see postgresql version
+# go to the sql by clicking on one of the datbaces and write:
+SELECT version();
+
+#my version is 10.4
+
+#in order to be able to use command line for postgresql, you must configure the $PATH variable: (after runninf 
+#following line close the terminal and open again in order to change apply. then if you go to (env) and write psql you will go in the postgresql environment
+
+sudo mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
+
+
+
+#In order to run the migrations initialize Alembic:
+python manage.py db init
+
+
+
+#Let’s create our first migration by running the migrate command.
+python manage.py db migrate
